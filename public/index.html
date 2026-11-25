@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DeepL Multi-Account Usage</title>
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+        <link rel="stylesheet" href="styles.css" />
+        <script
+            src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"
+            integrity="sha384-9nhczxUqK87bcKHh20fSQcTGD4qq5GhayNYSYWqwBkINBhOfQLg/P5HG5lF1urn4"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body>
+        <header class="page-header">
+            <div class="container header-row">
+                <div>
+                    <h1>DeepL API usage <span class="muted">across accounts</span></h1>
+                    <p class="subtitle" id="subtitle">Loading accounts…</p>
+                </div>
+                <button type="button" class="button" id="refresh">Refresh</button>
+            </div>
+        </header>
+
+        <main class="container">
+            <section class="controls" aria-label="Filters">
+                <div class="control">
+                    <span class="control-label">Date range (UTC)</span>
+                    <div class="segmented" id="presets" role="group" aria-label="Date range presets">
+                        <button type="button" data-preset="7d">7 days</button>
+                        <button type="button" data-preset="30d">30 days</button>
+                        <button type="button" data-preset="90d">90 days</button>
+                        <button type="button" data-preset="mtd">Month to date</button>
+                        <button type="button" data-preset="last-month">Last month</button>
+                        <button type="button" data-preset="ytd">Year to date</button>
+                        <button type="button" data-preset="12m">12 months</button>
+                    </div>
+                    <div class="date-inputs">
+                        <label>From <input type="date" id="start-date" /></label>
+                        <label>To <input type="date" id="end-date" /></label>
+                    </div>
+                </div>
+                <div class="control">
+                    <span class="control-label">Group by</span>
+                    <div class="segmented" id="granularity" role="group" aria-label="Time series granularity">
+                        <button type="button" data-granularity="day">Day</button>
+                        <button type="button" data-granularity="week">Week</button>
+                        <button type="button" data-granularity="month">Month</button>
+                    </div>
+                </div>
+                <div class="control">
+                    <label class="control-label" for="metric">Metric</label>
+                    <select id="metric"></select>
+                </div>
+            </section>
+
+            <div id="messages" role="status" aria-live="polite"></div>
+
+            <section aria-labelledby="summary-title">
+                <h2 id="summary-title">Summary <span class="muted" id="summary-range"></span></h2>
+                <div class="stats-grid" id="stats"></div>
+            </section>
+
+            <section class="card" aria-labelledby="share-title">
+                <h2 id="share-title">Share by account <span class="muted metric-name"></span></h2>
+                <div id="share"></div>
+            </section>
+
+            <section class="card" aria-labelledby="series-title">
+                <h2 id="series-title">Usage over time <span class="muted metric-name"></span></h2>
+                <p class="muted" id="series-empty" hidden>No account data loaded.</p>
+                <div class="chart-wrap" id="series-wrap"><canvas id="series-chart" aria-label="Usage over time by account"></canvas></div>
+                <details class="table-toggle">
+                    <summary>View as table</summary>
+                    <div class="table-scroll" id="series-table"></div>
+                </details>
+            </section>
+
+            <section aria-labelledby="accounts-title">
+                <h2 id="accounts-title">Accounts</h2>
+                <div class="accounts-grid" id="accounts"></div>
+            </section>
+        </main>
+
+        <footer class="container footer">
+            Data from the <a href="https://developers.deepl.com/api-reference/admin-api/get-usage-analytics">DeepL Admin API</a>
+            (<code>/v2/admin/analytics</code>). Dates are UTC. Recent usage can take a few minutes to appear.
+        </footer>
+
+        <script src="aggregate.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>

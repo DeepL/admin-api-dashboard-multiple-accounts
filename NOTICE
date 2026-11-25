@@ -1,0 +1,10 @@
+DeepL Multi-Account Usage Dashboard
+Copyright (c) 2026 DeepL SE (https://www.deepl.com)
+
+This project has no npm dependencies. The dashboard page loads the following
+third-party software in the browser from the jsDelivr CDN at runtime (it is not
+bundled in this repository):
+
+Chart.js 4.4.1
+  License: MIT
+  https://github.com/chartjs/Chart.js

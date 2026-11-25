@@ -1,0 +1,32 @@
+{
+    "name": "deepl-multi-account-usage-dashboard",
+    "version": "0.1.0",
+    "description": "A dashboard that combines DeepL Admin API usage analytics from multiple DeepL API accounts into one view",
+    "main": "server.js",
+    "scripts": {
+        "setup": "node scripts/setup.js",
+        "start": "node server.js",
+        "sample": "node server.js --sample",
+        "test": "node --test test/*.test.js"
+    },
+    "keywords": [
+        "deepl",
+        "dashboard",
+        "usage",
+        "analytics",
+        "admin-api"
+    ],
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DeepL/admin-api-dashboard-multiple-accounts.git"
+    },
+    "bugs": {
+        "url": "https://github.com/DeepL/admin-api-dashboard-multiple-accounts/issues"
+    },
+    "homepage": "https://github.com/DeepL/admin-api-dashboard-multiple-accounts#readme",
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "dependencies": {}
+}

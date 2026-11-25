@@ -1,0 +1,11 @@
+# Config file (contains Admin API keys)
+config.json
+
+node_modules/
+
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
+*.swp

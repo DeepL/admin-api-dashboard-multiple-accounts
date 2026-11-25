@@ -1,0 +1,19 @@
+# Never bake keys or local state into an image.
+config.json
+keys.env
+*.env
+.env*
+
+.git
+.gitignore
+node_modules
+test
+docs
+scripts
+assets
+README.md
+Dockerfile
+.dockerignore
+.DS_Store
+.vscode
+.idea

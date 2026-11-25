@@ -1,0 +1,23 @@
+{
+    "accounts": [
+        {
+            "name": "Production (EU)",
+            "region": "EU",
+            "admin_api_key": "YOUR_ADMIN_API_KEY:adm"
+        },
+        {
+            "name": "Production (US)",
+            "region": "US",
+            "admin_api_key": "YOUR_ADMIN_API_KEY:adm"
+        },
+        {
+            "name": "Production (JP)",
+            "region": "JP",
+            "admin_api_key": "YOUR_ADMIN_API_KEY:adm"
+        }
+    ],
+    "server": {
+        "port": 3000,
+        "host": "127.0.0.1"
+    }
+}
